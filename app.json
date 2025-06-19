@@ -1,31 +1,31 @@
 {
   "expo": {
-    "name": "CTI-Portal",
+    "name": "CTIPortal3",
     "slug": "notification-tc5",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/ImagenCTIPORTAL.png",
+    "icon": "./assets/images/CTIPORTAL.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.santicticontrol.notificationtc5",
+      "bundleIdentifier": "com.cti.ctiportal",
       "buildNumber": "1.0.0",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false,
-        "CFBundleDisplayName": "TC5 Portal"
+        "CFBundleDisplayName": "CTIPortal"
       }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/ImagenCTIPORTAL.png",
-        "backgroundColor": "#005EB8"
+        "foregroundImage": "./assets/images/CTIPORTAL.png",
+        "backgroundColor": "#a6d514"
       },
       "versionCode": 1,
-      "package": "com.santicticontrol.notificationtc5",
+      "package": "com.cti.ctiportal",
       "usesCleartextTraffic": true,
-      "label": "TC5 Portal"
+      "label": "CTIPortal"
     },
     "web": {
       "bundler": "metro",

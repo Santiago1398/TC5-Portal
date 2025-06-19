@@ -6,26 +6,22 @@ buildscript {
         minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '24')
         compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '35')
         targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
-     // kotlinVersion = findProperty('android.kotlinVersion') ?: '1.9.24'
-        kotlinVersion = '1.9.25' // Cambiar a versión compatible
-        composeCompilerVersion = '1.5.15' // Versión compatible con Kotlin 1.9.25
+        kotlinVersion = findProperty('android.kotlinVersion') ?: '1.9.25'
+
         ndkVersion = "26.1.10909125"
     }
     repositories {
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
-   dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0'
-        classpath 'com.google.gms:google-services:4.4.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        // Usamos la versión que trae React Native; puede que debas forzar la versión en resolutions
-        classpath 'com.facebook.react:react-native-gradle-plugin:0.76.7'
+    dependencies {
+        classpath('com.android.tools.build:gradle')
+        classpath('com.facebook.react:react-native-gradle-plugin')
+        classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
     }
 }
 
-//apply plugin: "com.facebook.react.rootproject"
+apply plugin: "com.facebook.react.rootproject"
 
 allprojects {
     repositories {
@@ -42,13 +38,4 @@ allprojects {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
-    
 }
-configurations.all {
-    resolutionStrategy.eachDependency { details ->
-        if (details.requested.group == 'org.jetbrains.kotlin') {
-            details.useVersion "1.7.20"
-        }
-    }
-}
-
