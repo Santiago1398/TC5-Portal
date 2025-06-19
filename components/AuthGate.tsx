@@ -4,6 +4,8 @@ import { ActivityIndicator, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { checkTokenValidity } from "@/store/ckeckTokenValiity";
+import { useEnvStore } from "@/store/envSotre";
+
 
 export default function AuthGate() {
     const navigation = useNavigation<any>();
@@ -11,6 +13,9 @@ export default function AuthGate() {
     useEffect(() => {
         const checkAuth = async () => {
             const token = await AsyncStorage.getItem("token");
+            if (!token) {
+                useEnvStore.getState().toggleMode(false); // Reinicia a producción
+            }
 
             if (token) {
                 const valid = await checkTokenValidity(token);

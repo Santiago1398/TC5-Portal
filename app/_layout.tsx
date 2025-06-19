@@ -58,7 +58,25 @@ export default function Layout() {
             initialRouteName={isAuthenticated ? "HomeScreen" : "Login"}
         >
             {isAuthenticated ? (
-                <Drawer.Screen name="HomeScreen" component={HomeScreen} options={{ headerTitle: "" }} />
+                <Drawer.Screen name="HomeScreen" component={HomeScreen} options={{
+                    headerShown: true,
+                    headerTitle: "CTIPORTAL",
+                    headerTitleAlign: 'center',
+
+                    headerStyle: {
+                        backgroundColor: "#ffffff",
+                    },
+                    //headerTintColor: "#00449c",
+                    headerTitleStyle: {
+                        fontWeight: 'bold',
+                        fontSize: 24,
+                        color: '#00449c',
+                        letterSpacing: 1, // opcional para más parecido
+                        fontFamily: 'Releway-Bold'
+                    },
+
+                }}
+                />
             ) : (
                 <Drawer.Screen
                     name="Login"

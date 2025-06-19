@@ -4,7 +4,7 @@ import zustandStorage from './zustandStorage'; // Asegúrate de usar la ruta cor
 
 type EnvState = {
     devMode: boolean;
-    toggleMode: () => void;
+    toggleMode: (force?: boolean) => void; // <- importante el (force?: boolean)
     currentUrl: (token?: string) => string;
     getApiUrl: () => string;
 };
@@ -13,7 +13,10 @@ export const useEnvStore = create<EnvState>()(
     persist(
         (set, get) => ({
             devMode: false,
-            toggleMode: () => set((state) => ({ devMode: !state.devMode })),
+            toggleMode: (force?: boolean) =>
+                set((state) => ({ devMode: typeof force === "boolean" ? force : !state.devMode })),
+
+
 
             currentUrl: (token = "") =>
                 get().devMode

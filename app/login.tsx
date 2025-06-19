@@ -113,7 +113,7 @@ export default function LoginScreen({ navigation }: any) {
                     </View>
 
                     <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                        <Text style={styles.buttonText}>Login in</Text>
+                        <Text style={styles.buttonText}>Login </Text>
                         <Feather name="arrow-right" size={20} color="#fff" style={styles.buttonIcon} />
                     </TouchableOpacity>
                 </View>
